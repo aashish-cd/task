@@ -50,7 +50,7 @@ const Table = ({ rows, columns }) => {
                       active === index + row * columns ? 'active' : ''
                     }`}
                   >
-                    {index + row * columns}
+                    {index + row * columns + 1}
                   </div>
                 )
               })}

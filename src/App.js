@@ -13,13 +13,32 @@ const App = () => {
   const handleSubmit = () => {
     setRows(rowsRef.current.value)
     setColumns(columnsRef.current.value)
-    console.log(rows, columns)
+    // console.log(rows, columns)
   }
   // const fetchData = async () => {
-  //   const response = await fetch(url)
-  //   const data = await response.json()
+  //   const response = await fetch(url, { mode: 'no-cors' }).then((response) => {
+  //     const data = response.json()
+  //     return data
+  //   }).then()
+  //   // setRows()
+  //   // setColumns(data.columns)
+  //   console.log(response)
   // }
   // fetchData()
+
+  // fetch('https://jsonkeeper.com/b/B96K', {
+  //   mode: 'no-cors',
+  // })
+  //   .then((response = response.json()))
+  //   .then((res) => console.log(res))
+
+  // async function fetchData(url) {
+  //   const response = await fetch(url)
+
+  //   var data = await response.json()
+  //   console.log(data)
+  // }
+  // fetchData(url)
 
   return (
     <div>
