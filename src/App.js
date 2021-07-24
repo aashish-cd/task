@@ -1,12 +1,12 @@
 import React, { useState, useRef } from 'react'
 
 import Table from './Table'
+import values from './data.json'
 
 // const url = 'https://jsonkeeper.com/b/B96K'
-
 const App = () => {
-  const [rows, setRows] = useState(3)
-  const [columns, setColumns] = useState(4)
+  const [rows, setRows] = useState(values.rows)
+  const [columns, setColumns] = useState(values.columns)
   const rowsRef = useRef(rows)
   const columnsRef = useRef(columns)
 
@@ -45,9 +45,23 @@ const App = () => {
       <div className='inputs'>
         <div className='form'>
           <label htmlFor='row'>Rows</label>
-          <input type='number' name='row' id='row' ref={rowsRef} />
+          <input
+            type='number'
+            name='row'
+            id='row'
+            value={rows}
+            onChange={(e) => setRows(e.target.value)}
+            ref={rowsRef}
+          />
           <label htmlFor='column'>Columns</label>
-          <input type='number' name='column' id='column' ref={columnsRef} />
+          <input
+            type='number'
+            name='column'
+            id='column'
+            value={columns}
+            onChange={(e) => setColumns(e.target.value)}
+            ref={columnsRef}
+          />
           <button onClick={handleSubmit}>Create</button>
         </div>
       </div>
