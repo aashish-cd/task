@@ -1,9 +1,9 @@
 import React, { useState, useRef } from 'react'
-
+// import cors from 'cors'
 import Table from './Table'
 import values from './data.json'
 
-// const url = 'https://jsonkeeper.com/b/B96K'
+const url = 'https://jsonkeeper.com/b/B96K'
 const App = () => {
   const [rows, setRows] = useState(values.rows)
   const [columns, setColumns] = useState(values.columns)
@@ -32,13 +32,12 @@ const App = () => {
   //   .then((response = response.json()))
   //   .then((res) => console.log(res))
 
-  // async function fetchData(url) {
+  // const fetchData = async () => {
   //   const response = await fetch(url)
-
-  //   var data = await response.json()
+  //   const data = await response.json()
   //   console.log(data)
   // }
-  // fetchData(url)
+  // fetchData()
 
   return (
     <div>

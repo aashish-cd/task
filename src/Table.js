@@ -8,6 +8,7 @@ import {
 
 const Table = ({ rows, columns }) => {
   const [active, setActive] = useState(0)
+  const [limit, setLimit] = useState(true)
   let rowArray = []
   let columnArray = []
   for (let i = 0; i < rows; i++) {
@@ -17,26 +18,43 @@ const Table = ({ rows, columns }) => {
     columnArray = [...columnArray, j]
   }
   useEffect(() => {
-    setActive(0)
-  }, [rows, columns])
+    if (active > rowArray.length * columnArray.length - 1 || active < 1) {
+      setActive(0)
+    }
+  }, [rows, columns, limit])
 
   return (
     <div>
       <div className='arrows'>
         <div className='arrow-container'>
-          <FaArrowUp onClick={() => setActive(active - columnArray.length)} />
-        </div>
-        <div className='arrow-container'>
-          <FaArrowLeft onClick={() => setActive(active - 1)} />{' '}
-          <FaArrowRight
+          <FaArrowUp
             onClick={() => {
-              setActive(active + 1)
+              setActive(active - columnArray.length)
+              setLimit(!limit)
             }}
           />
         </div>
-
         <div className='arrow-container'>
-          <FaArrowDown onClick={() => setActive(active + columnArray.length)} />
+          <FaArrowLeft
+            onClick={() => {
+              setActive(active - 1)
+              setLimit(!limit)
+            }}
+          />{' '}
+          <FaArrowRight
+            onClick={() => {
+              setActive(active + 1)
+              setLimit(!limit)
+            }}
+          />
+        </div>
+        <div className='arrow-container'>
+          <FaArrowDown
+            onClick={() => {
+              setActive(active + columnArray.length)
+              setLimit(!limit)
+            }}
+          />
         </div>
       </div>
       <div className='box-container'>
